@@ -2,10 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import Image from 'next/image';
 import { Icon } from '@iconify/react';
 import { Calendar, Award, Code, Layers, Server, Wrench, Terminal, Database, Blocks } from 'lucide-react';
-import { skillData } from '@/lib/data';
 
 function AsIsCard() {
   const items: string[] = [

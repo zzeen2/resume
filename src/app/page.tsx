@@ -1,9 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChevronDown, Github, Linkedin, Mail, ExternalLink, ArrowRight } from 'lucide-react';
+import { Github, ExternalLink, ArrowRight } from 'lucide-react';
 import { portfolioData } from '@/lib/data';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
       setTitleIndex((prev) => (prev + 1) % titles.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [titles.length]);
 
   return (
     <div className="min-h-screen bg-stone-950 text-white overflow-hidden">
@@ -193,12 +194,12 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-center mt-12"
           >
-            <a
+            <Link
               href="/projects"
-              className="bg-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-200"
+              className="inline-block bg-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-200"
             >
               모든 프로젝트 보기
-            </a>
+            </Link>
           </motion.div>
         </div>
       </section>

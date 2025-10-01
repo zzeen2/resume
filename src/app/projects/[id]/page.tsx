@@ -160,11 +160,11 @@ export default function ProjectDetail() {
               <ExternalLink className="w-4 h-4 mr-2" />
               <span className="font-mono">{project.link}</span>
             </a>
-            {(project as any).appLink && (
+                {(project as { appLink?: string }).appLink && (
               <>
                 <span className="text-stone-700">|</span>
                 <a
-                  href={(project as any).appLink}
+                  href={(project as { appLink?: string }).appLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-stone-300 hover:text-fuchsia-400 transition-colors"
@@ -297,10 +297,10 @@ export default function ProjectDetail() {
             <div>
               <h2 className="text-2xl font-bold mb-8">구현 기능</h2>
               <div className="space-y-10">
-                {/* Full width images */}
-                {project.image
-                  .filter((img: any) => img.layout === 'full')
-                  .map((img: any, idx: number) => (
+                    {/* Full width images */}
+                    {project.image
+                      .filter((img: { layout?: string }) => img.layout === 'full')
+                  .map((img: { name: string; tit: string; desc: string }, idx: number) => (
                     <div key={`full-${idx}`} className="space-y-4">
                       {/* Image */}
                       <div 
@@ -322,16 +322,16 @@ export default function ProjectDetail() {
                     </div>
                   ))}
 
-                {/* Half width images - grid layout */}
-                {(() => {
-                  const halfImages = project.image.filter((img: any) => img.layout === 'half');
+                    {/* Half width images - grid layout */}
+                    {(() => {
+                      const halfImages = project.image.filter((img: { layout?: string }) => img.layout === 'half');
                   const rows = [];
                   for (let i = 0; i < halfImages.length; i += 2) {
                     rows.push(halfImages.slice(i, i + 2));
                   }
                   return rows.map((row, rowIdx) => (
                     <div key={`row-${rowIdx}`} className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      {row.map((img: any, colIdx: number) => (
+                      {row.map((img: { name: string; tit: string; desc: string }, colIdx: number) => (
                         <div key={`half-${rowIdx}-${colIdx}`} className="space-y-4">
                           {/* Image */}
                           <div 
