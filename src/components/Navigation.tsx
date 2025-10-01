@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { Home, User, FolderOpen, Mail, Github } from 'lucide-react';
+import { Home, User, FolderOpen, Github } from 'lucide-react';
 
 export default function Navigation() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -20,7 +20,6 @@ export default function Navigation() {
     { name: 'Home', href: '/', icon: Home },
     { name: 'About', href: '/about', icon: User },
     { name: 'Projects', href: '/projects', icon: FolderOpen },
-    { name: 'Contact', href: '/contact', icon: Mail },
   ];
 
   return (
@@ -58,12 +57,12 @@ export default function Navigation() {
         {/* GitHub 링크 */}
         <li className="relative group">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/zzeen2"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative inline-flex items-center rounded-full transition-all duration-200 overflow-hidden w-14 h-14 bg-gray-800 justify-center group-hover:w-auto group-hover:pl-6 group-hover:pr-4 group-hover:bg-blue-600"
+            className="relative inline-flex items-center rounded-full transition-all duration-200 overflow-hidden w-14 h-14 bg-stone-800 justify-center group-hover:w-auto group-hover:pl-6 group-hover:pr-4 group-hover:bg-stone-700"
           >
-            <span className="mr-3 text-white font-semibold text-sm uppercase tracking-wide whitespace-nowrap transition-all duration-300 opacity-0 max-w-0 group-hover:opacity-100 group-hover:max-w-full">
+            <span className="text-white font-semibold text-sm uppercase tracking-wide whitespace-nowrap overflow-hidden transition-all duration-300 opacity-0 w-0 mr-0 group-hover:opacity-100 group-hover:w-auto group-hover:mr-3">
               Github
             </span>
             <div className="flex items-center justify-center group-hover:ml-auto">

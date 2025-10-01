@@ -482,6 +482,93 @@ export const portfolioData = {
         },
       ],
     },
+    {
+      name: "AixelLab – AI 픽셀아트 NFT 마켓플레이스",
+      period: "2025.07.08 - 진행중",
+      project: "Personal Project",
+      logo: "palette",
+      percent: "1명",
+      github: "https://github.com/zzeen2/AixelLab",
+      description: `AI 기반 픽셀 아트 생성과 커뮤니티 투표를 통한 NFT 민팅 플랫폼입니다. OpenAI DALL-E를 활용한 AI 픽셀 아트 생성, 커뮤니티 투표 시스템, Account Abstraction 기반 스마트 계정, NFT 마켓플레이스를 통합한 Web3 아트 플랫폼입니다.
+사용자는 AI로 픽셀 아트를 생성하고, 커뮤니티 투표를 통해 임계값을 달성하면 자동으로 NFT가 민팅됩니다. ERC-4337 표준 기반 Account Abstraction을 구현하여 Google OAuth와 MetaMask 사용자가 모두 편리하게 이용할 수 있는 통합 인증 시스템을 제공합니다.
+
+🎯 **구현 기능**
+
+• AI 픽셀 아트 생성 시스템: OpenAI DALL-E API를 활용한 픽셀 아트 자동 생성, React Canvas 기반 픽셀 에디터 구현 (react-colorful, color-thief-browser 라이브러리 활용)
+• 커뮤니티 투표 시스템: 작품 제출 → 커뮤니티 투표 → 임계값 달성시 자동 NFT 민팅 워크플로우 구현
+• Account Abstraction (AA) 구현: ERC-4337 표준 기반 스마트 계정 시스템, CREATE2를 활용한 예측 가능한 스마트 계정 주소 생성
+• 다중 로그인 방식 지원: Google OAuth 사용자용 비밀번호 기반 EOA 생성과 MetaMask 사용자용 지갑 서명 인증을 통한 통합 사용자 관리 시스템
+• NFT 마켓플레이스: ERC-721 기반 ArtworkNFT 컨트랙트, IPFS 메타데이터 저장, 실시간 NFT 거래 시스템 (구현중)
+• Hardhat 테스트: SmartAccount, SmartAccountFactory, ArtworkNFT, Marketplace 컨트랙트에 대한 포괄적인 단위 테스트 및 통합 테스트 구현
+• IPFS 메타데이터 관리: Pinata API를 활용한 이미지 및 메타데이터 분산 저장 시스템
+
+**문제 해결 및 최적화**
+• JavaScript와 Solidity 간 initCode 생성 방식 불일치 문제 해결: JavaScript에서는 creationCode + constructorArgs.slice(2) 방식으로 initCode를 생성하지만, Solidity에서는 abi.encodePacked(type(SmartAccount).creationCode, abi.encode(...)) 방식을 사용하여 주소 계산 결과가 달라짐 → JavaScript에서 ethers.solidityPacked를 사용하여 Solidity의 abi.encodePacked와 동일한 방식으로 initCode를 생성하도록 수정하여 일치하는 주소 계산 로직 구현
+• Google 사용자와 MetaMask 사용자의 서로 다른 지갑 생성 방식으로 인한 주소 매핑 문제 해결: userType 기반 조건부 로직과 eoa_address/wallet_address 우선순위 매핑으로 통합 관리 시스템 구축`,
+      tech: [
+        "React",
+        "Node.js",
+        "Express.js",
+        "MySQL",
+        "Sequelize",
+        "Passport.js",
+        "Solidity",
+        "Hardhat",
+        "ethers.js",
+        "OpenAI API",
+        "IPFS",
+      ],
+      image: [
+        {
+          name: "aixellab/login/capture.png",
+          tit: "Google OAuth 로그인",
+          desc: "Google 계정을 통한 소셜 로그인 시스템. Passport.js 기반 OAuth 2.0 인증",
+          layout: "full",
+        },
+        {
+          name: "aixellab/login/화면 기록 2025-09-29 오전 7.20.27.mov",
+          tit: "MetaMask 지갑 로그인",
+          desc: "MetaMask 지갑 서명을 통한 Web3 인증 시스템. 지갑 연동 및 사용자 인증",
+          layout: "full",
+        },
+        {
+          name: "aixellab/createwallet/화면 기록 2025-09-29 오전 7.29.30.mov",
+          tit: "스마트 계정 생성",
+          desc: "ERC-4337 Account Abstraction 기반 스마트 계정 생성 프로세스. CREATE2를 활용한 예측 가능한 주소 생성",
+          layout: "full",
+        },
+        {
+          name: "aixellab/create_artwork/화면 기록 2025-09-29 오전 7.32.45.mov",
+          tit: "AI 픽셀 아트 생성 - 초안 없이",
+          desc: "React Canvas 기반 픽셀 에디터를 사용하여 처음부터 픽셀 아트를 직접 생성. 색상 팔레트 선택, 픽셀 단위 편집 기능",
+          layout: "full",
+        },
+        {
+          name: "aixellab/create_artwork/화면 기록 2025-09-29 오전 7.35.23.mov",
+          tit: "AI 픽셀 아트 생성 - AI 초안 활용",
+          desc: "OpenAI DALL-E API를 활용한 AI 픽셀 아트 자동 생성 후 에디터를 통한 수정 및 보완 작업",
+          layout: "full",
+        },
+        {
+          name: "aixellab/Voting/화면 기록 2025-09-29 오전 7.37.50.mov",
+          tit: "커뮤니티 투표 시스템",
+          desc: "작품에 대한 커뮤니티 투표 프로세스",
+          layout: "full",
+        },
+        {
+          name: "aixellab/minting/화면 기록 2025-09-29 오전 7.49.22.mov",
+          tit: "NFT 민팅",
+          desc: "ERC-721 기반 ArtworkNFT 컨트랙트를 통한 NFT 민팅 프로세스. IPFS 메타데이터 저장 및 온체인 발행",
+          layout: "full",
+        },
+        {
+          name: "aixellab/Listing/화면 기록 2025-09-29 오전 7.53.32.mov",
+          tit: "NFT 마켓플레이스 리스팅",
+          desc: "민팅된 NFT를 마켓플레이스에 등록하고 거래할 수 있는 시스템",
+          layout: "full",
+        },
+      ],
+    },
   ],
 };
 

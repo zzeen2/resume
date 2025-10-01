@@ -80,7 +80,7 @@ export default function ProjectDetail() {
 
     lines.forEach((line) => {
       if (line.includes('🎯 **핵심 기능**') || line.includes('🎯 **구현 기능**')) {
-        currentSection = 'features';
+        currentSection = 'roleBackend';
       } else if (line.includes('👨‍💻 **담당 역할')) {
         currentSection = 'role';
       } else if (line.includes('**Backend**') || line.includes('**스마트 컨트랙트')) {
@@ -194,83 +194,20 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          {/* My Role / Implementation Features */}
+          {/* Implementation Features */}
           <div className="pb-12 border-b border-stone-800">
-            <h2 className="text-2xl font-bold mb-6">
-              {sections.roleBackend.length > 0 ? '구현 기능' : '담당 역할'} {sections.roleBackend.length > 0 && sections.roleFrontend.length > 0 && '(풀스택)'}
-            </h2>
-            
-            {sections.roleBackend.length > 0 ? (
-              <div className="space-y-8">
-                {/* Backend / Smart Contract */}
-                {sections.roleBackend.length > 0 && (
-                  <div>
-                    <h3 className="text-lg font-semibold text-fuchsia-400 mb-3">
-                      {project.description.includes('스마트 컨트랙트') ? '스마트 컨트랙트 (Blockchain)' : 'Backend'}
-                    </h3>
-                    <ul className="space-y-3 text-stone-300">
-                      {sections.roleBackend.map((role, idx) => {
-                        const cleanRole = role.replace(/^•\s*/, '');
-                        return (
-                          <li key={idx} className="flex items-start">
-                            <span className="inline-block w-1.5 h-1.5 rounded-full bg-fuchsia-500 mt-2 mr-3 flex-shrink-0"></span>
-                            <span className="leading-relaxed">{cleanRole}</span>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                )}
-                
-                {/* Frontend */}
-                {sections.roleFrontend.length > 0 && (
-                  <div>
-                    <h3 className="text-lg font-semibold text-fuchsia-400 mb-3">Frontend</h3>
-                    <ul className="space-y-3 text-stone-300">
-                      {sections.roleFrontend.map((role, idx) => {
-                        const cleanRole = role.replace(/^•\s*/, '');
-                        return (
-                          <li key={idx} className="flex items-start">
-                            <span className="inline-block w-1.5 h-1.5 rounded-full bg-fuchsia-500 mt-2 mr-3 flex-shrink-0"></span>
-                            <span className="leading-relaxed">{cleanRole}</span>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                )}
-                
-                {/* 문제 해결 및 최적화 */}
-                {sections.roleEtc.length > 0 && (
-                  <div>
-                    <h3 className="text-lg font-semibold text-fuchsia-400 mb-3">문제 해결 및 최적화</h3>
-                    <ul className="space-y-3 text-stone-300">
-                      {sections.roleEtc.map((role, idx) => {
-                        const cleanRole = role.replace(/^•\s*/, '');
-                        return (
-                          <li key={idx} className="flex items-start">
-                            <span className="inline-block w-1.5 h-1.5 rounded-full bg-fuchsia-500 mt-2 mr-3 flex-shrink-0"></span>
-                            <span className="leading-relaxed">{cleanRole}</span>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <ul className="space-y-3 text-stone-300">
-                {sections.role.map((role, idx) => {
-                  const cleanRole = role.replace(/^•\s*/, '');
-                  return (
-                    <li key={idx} className="flex items-start">
-                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-fuchsia-500 mt-2 mr-3 flex-shrink-0"></span>
-                      <span className="leading-relaxed">{cleanRole}</span>
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
+            <h2 className="text-2xl font-bold mb-6">구현 기능</h2>
+            <ul className="space-y-3 text-stone-300">
+              {sections.roleBackend.map((role, idx) => {
+                const cleanRole = role.replace(/^•\s*/, '');
+                return (
+                  <li key={idx} className="flex items-start">
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-fuchsia-500 mt-2 mr-3 flex-shrink-0"></span>
+                    <span className="leading-relaxed">{cleanRole}</span>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
 
           {/* Tech Stack with Icons */}
@@ -297,31 +234,6 @@ export default function ProjectDetail() {
             <div>
               <h2 className="text-2xl font-bold mb-8">구현 기능</h2>
               <div className="space-y-10">
-                    {/* Full width images */}
-                    {project.image
-                      .filter((img: { layout?: string }) => img.layout === 'full')
-                  .map((img: { name: string; tit: string; desc: string }, idx: number) => (
-                    <div key={`full-${idx}`} className="space-y-4">
-                      {/* Image */}
-                      <div 
-                        className="relative w-full h-[28rem] rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-                        onClick={() => setSelectedImage(`/images/projects/${img.name}`)}
-                      >
-                        <Image
-                          src={`/images/projects/${img.name}`}
-                          alt={img.tit}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-                      {/* Description */}
-                      <div>
-                        <h3 className="text-xl font-bold text-fuchsia-400 mb-2">{img.tit}</h3>
-                        <p className="text-stone-300 text-base leading-relaxed">{img.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-
                     {/* Half width images - grid layout */}
                     {(() => {
                       const halfImages = project.image.filter((img: { layout?: string }) => img.layout === 'half');
@@ -333,18 +245,31 @@ export default function ProjectDetail() {
                     <div key={`row-${rowIdx}`} className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       {row.map((img: { name: string; tit: string; desc: string }, colIdx: number) => (
                         <div key={`half-${rowIdx}-${colIdx}`} className="space-y-4">
-                          {/* Image */}
-                          <div 
-                            className="relative w-full h-[28rem] rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-                            onClick={() => setSelectedImage(`/images/projects/${img.name}`)}
-                          >
-                            <Image
-                              src={`/images/projects/${img.name}`}
-                              alt={img.tit}
-                              fill
-                              className="object-contain"
-                            />
-                          </div>
+                          {/* Image or Video */}
+                          {img.name.endsWith('.mov') || img.name.endsWith('.mp4') ? (
+                            <div className="relative w-full rounded-xl overflow-hidden bg-stone-950">
+                              <video
+                                src={`/images/projects/${img.name}`}
+                                controls
+                                className="w-full h-auto"
+                                preload="metadata"
+                              >
+                                Your browser does not support the video tag.
+                              </video>
+                            </div>
+                          ) : (
+                            <div 
+                              className="relative w-full h-[28rem] rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+                              onClick={() => setSelectedImage(`/images/projects/${img.name}`)}
+                            >
+                              <Image
+                                src={`/images/projects/${img.name}`}
+                                alt={img.tit}
+                                fill
+                                className="object-contain"
+                              />
+                            </div>
+                          )}
                           {/* Description */}
                           <div>
                             <h3 className="text-xl font-bold text-fuchsia-400 mb-2">{img.tit}</h3>
@@ -355,6 +280,44 @@ export default function ProjectDetail() {
                     </div>
                   ));
                 })()}
+
+                    {/* Full width images */}
+                    {project.image
+                      .filter((img: { layout?: string }) => img.layout === 'full')
+                  .map((img: { name: string; tit: string; desc: string }, idx: number) => (
+                    <div key={`full-${idx}`} className="space-y-4">
+                      {/* Image or Video */}
+                      {img.name.endsWith('.mov') || img.name.endsWith('.mp4') ? (
+                        <div className="relative w-full rounded-xl overflow-hidden bg-stone-950">
+                          <video
+                            src={`/images/projects/${img.name}`}
+                            controls
+                            className="w-full h-auto"
+                            preload="metadata"
+                          >
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      ) : (
+                        <div 
+                          className="relative w-full h-[28rem] rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+                          onClick={() => setSelectedImage(`/images/projects/${img.name}`)}
+                        >
+                          <Image
+                            src={`/images/projects/${img.name}`}
+                            alt={img.tit}
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                      )}
+                      {/* Description */}
+                      <div>
+                        <h3 className="text-xl font-bold text-fuchsia-400 mb-2">{img.tit}</h3>
+                        <p className="text-stone-300 text-base leading-relaxed">{img.desc}</p>
+                      </div>
+                    </div>
+                  ))}
               </div>
             </div>
           )}

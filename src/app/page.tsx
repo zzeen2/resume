@@ -1,11 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Github, ExternalLink, ArrowRight } from 'lucide-react';
+import { ArrowRight, Github } from 'lucide-react';
 import { portfolioData } from '@/lib/data';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { Icon } from '@iconify/react';
 
 export default function Home() {
   const featuredProjects = portfolioData.portfolioList.slice(0, 3);
@@ -77,27 +78,54 @@ export default function Home() {
                   풀스택 경험을 바탕으로, 지금은 백엔드와 블록체인 영역으로 커리어를 확장하고 있습니다.
                 </p>
 
-                <div className="mb-12">
-                  <h2 className="text-xl font-bold mb-6">PERSONAL INFOS</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <p className="text-stone-500 text-sm mb-1">Name</p>
-                      <p className="text-fuchsia-400 font-semibold">김지은</p>
+                    <div className="mb-12">
+                      <h2 className="text-xl font-bold mb-6">PERSONAL INFOS</h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <p className="text-stone-500 text-sm mb-1">Name</p>
+                          <p className="text-fuchsia-400 font-semibold">김지은</p>
+                        </div>
+                        <div>
+                          <p className="text-stone-500 text-sm mb-1">Email</p>
+                          <p className="text-fuchsia-400 font-semibold">jking120393@gmail.com</p>
+                        </div>
+                        <div>
+                          <p className="text-stone-500 text-sm mb-1">Phone</p>
+                          <p className="text-fuchsia-400 font-semibold">010-7660-8020</p>
+                        </div>
+                        <div>
+                          <p className="text-stone-500 text-sm mb-1">Address</p>
+                          <p className="text-fuchsia-400 font-semibold">서울시 송파구</p>
+                        </div>
+                        <div>
+                          <p className="text-stone-500 text-sm mb-1">Birth</p>
+                          <p className="text-fuchsia-400 font-semibold">2001.12.03</p>
+                        </div>
+                        <div>
+                          <p className="text-stone-500 text-sm mb-1">Links</p>
+                          <div className="flex gap-3">
+                            <a
+                              href="https://github.com/zzeen2"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="w-9 h-9 rounded-full bg-fuchsia-500/20 hover:bg-stone-800 flex items-center justify-center transition-all duration-200 group ring-1 ring-fuchsia-500/40 hover:ring-stone-700"
+                              aria-label="GitHub"
+                            >
+                              <Github className="w-5 h-5 text-fuchsia-400 group-hover:text-white transition-colors" />
+                            </a>
+                            <a
+                              href="https://velog.io/@zzeen2/posts"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="w-9 h-9 rounded-full bg-fuchsia-500/20 hover:bg-[#20C997] flex items-center justify-center transition-all duration-200 group ring-1 ring-fuchsia-500/40 hover:ring-[#20C997]"
+                              aria-label="Velog"
+                            >
+                              <Icon icon="simple-icons:velog" className="w-5 h-5 text-fuchsia-400 group-hover:text-white transition-colors" />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-stone-500 text-sm mb-1">Email</p>
-                      <p className="text-fuchsia-400 font-semibold">your-email@example.com</p>
-                    </div>
-                    <div>
-                      <p className="text-stone-500 text-sm mb-1">Phone</p>
-                      <p className="text-fuchsia-400 font-semibold">010.0000.0000</p>
-                    </div>
-                    <div>
-                      <p className="text-stone-500 text-sm mb-1">Address</p>
-                      <p className="text-fuchsia-400 font-semibold">서울시</p>
-                    </div>
-                  </div>
-                </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
@@ -133,8 +161,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-              <h2 className="text-4xl font-bold mb-4">주요 프로젝트</h2>
-              <p className="text-stone-400 text-lg">제가 작업한 대표적인 프로젝트들입니다</p>
+              <h2 className="text-4xl font-bold mb-4">Project Preview</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -144,46 +171,52 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                className="bg-stone-800 rounded-lg overflow-hidden hover:bg-stone-700 transition-colors duration-300"
               >
-                <div className="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                  <span className="text-white text-lg font-semibold">{project.name}</span>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{project.name}</h3>
-                  <p className="text-gray-400 text-sm mb-4">{project.period}</p>
-                  <p className="text-gray-300 text-sm mb-4 line-clamp-3">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.slice(0, 3).map((tech) => (
-                      <span key={tech} className="px-2 py-1 bg-stone-700 text-stone-300 text-xs rounded">
-                        {tech}
-                      </span>
-                    ))}
-                    {project.tech.length > 3 && (
-                      <span className="px-2 py-1 bg-stone-700 text-stone-300 text-xs rounded">
-                        +{project.tech.length - 3}
-                      </span>
-                    )}
+                <Link href={`/projects/${index}`} className="group block">
+                  <div className="bg-stone-800 rounded-2xl overflow-hidden ring-1 ring-stone-700 hover:ring-fuchsia-500/50 transition-all duration-300">
+                    {/* Thumbnail */}
+                    <div className="h-48 bg-stone-950 flex items-center justify-center relative overflow-hidden">
+                      {project.image && project.image.length > 0 ? (
+                        <Image
+                          src={`/images/projects/${project.image[0].name}`}
+                          alt={project.name}
+                          fill
+                          className="object-contain group-hover:scale-105 transition-transform duration-300"
+                        />
+                      ) : (
+                        <>
+                          <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-600 to-pink-600"></div>
+                          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all duration-300"></div>
+                        </>
+                      )}
+                    </div>
+                    
+                    {/* Info */}
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold mb-2 group-hover:text-fuchsia-400 transition-colors">
+                        {project.name}
+                      </h3>
+                      <p className="text-stone-400 text-sm mb-3 line-clamp-2">
+                        {project.description.split('\n')[0]}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.slice(0, 3).map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2 py-1 bg-stone-900 text-stone-300 text-xs rounded-full"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.tech.length > 3 && (
+                          <span className="px-2 py-1 bg-stone-900 text-stone-400 text-xs rounded-full">
+                            +{project.tech.length - 3}
+                          </span>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex space-x-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-stone-400 hover:text-white transition-colors duration-200"
-                    >
-                      <Github className="w-5 h-5" />
-                    </a>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-stone-400 hover:text-white transition-colors duration-200"
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                    </a>
-                  </div>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -196,9 +229,9 @@ export default function Home() {
           >
             <Link
               href="/projects"
-              className="inline-block bg-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-200"
+              className="inline-flex items-center justify-center gap-2 bg-white text-stone-900 px-8 py-3 rounded-full font-semibold hover:bg-stone-200 transition-all duration-200"
             >
-              모든 프로젝트 보기
+              View More
             </Link>
           </motion.div>
         </div>
@@ -213,23 +246,30 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4">기술 스택</h2>
-            <p className="text-stone-400 text-lg">현재 사용하고 있는 주요 기술들입니다</p>
+            <h2 className="text-4xl font-bold mb-4">Tech Stack</h2>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {['React', 'Next.js', 'TypeScript', 'Node.js', 'MongoDB', 'Git'].map((skill, index) => (
+          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
+            {[
+              { name: 'TypeScript', icon: 'simple-icons:typescript', color: '#3178C6' },
+              { name: 'Node.js', icon: 'simple-icons:nodedotjs', color: '#339933' },
+              { name: 'NestJS', icon: 'simple-icons:nestjs', color: '#E0234E' },
+              { name: 'PostgreSQL', icon: 'simple-icons:postgresql', color: '#4169E1' },
+              { name: 'MySQL', icon: 'simple-icons:mysql', color: '#4479A1' },
+              { name: 'Solidity', icon: 'simple-icons:solidity', color: '#363636' },
+              { name: 'Next.js', icon: 'simple-icons:nextdotjs', color: '#000000' },
+              { name: 'React', icon: 'simple-icons:react', color: '#61DAFB' },
+            ].map((skill, index) => (
               <motion.div
-                key={skill}
+                key={skill.name}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center"
+                transition={{ duration: 0.6, delay: index * 0.05 }}
+                className="group"
               >
-                <div className="w-20 h-20 bg-stone-800 rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-stone-700 transition-colors duration-300">
-                  <span className="text-white font-bold text-sm">{skill}</span>
+                <div className="w-20 h-20 rounded-full ring-1 ring-stone-700/60 bg-stone-800/60 flex items-center justify-center transition-all hover:ring-fuchsia-500/40 hover:bg-stone-700/70 cursor-pointer">
+                  <Icon icon={skill.icon} className="w-10 h-10" style={{ color: skill.color }} />
                 </div>
-                <p className="text-stone-400 text-sm">{skill}</p>
               </motion.div>
             ))}
           </div>
@@ -240,47 +280,16 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-center mt-12"
           >
-            <a
+            <Link
               href="/about"
-              className="border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-black transition-colors duration-200"
+              className="border-2 border-fuchsia-500 text-fuchsia-400 px-8 py-3 rounded-full font-semibold hover:bg-fuchsia-500 hover:text-white transition-all duration-200"
             >
-              더 자세히 보기
-            </a>
+              View More
+            </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-stone-900">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl font-bold mb-6"
-          >
-            찾아주셔서 감사합니다 😀
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl text-stone-400 mb-8"
-          >
-            새로운 도전과 성장의 기회를 찾고 있습니다.<br />
-            함께 일할 수 있는 기회가 있다면 언제든 연락주세요!
-          </motion.p>
-          <motion.a
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            href="/contact"
-            className="bg-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-200 inline-block"
-          >
-            연락하기
-          </motion.a>
-        </div>
-      </section>
     </div>
   );
 }
