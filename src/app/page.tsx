@@ -33,20 +33,16 @@ export default function Home() {
             className="lg:w-[45%] h-screen bg-stone-950 flex items-center justify-center lg:justify-end p-8 lg:pr-6"
           >
             <div className="relative">
-              <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] rounded-full p-2 bg-gradient-to-br from-fuchsia-600 to-pink-700 shadow-2xl shadow-fuchsia-900/30">
-                <div className="w-full h-full rounded-full overflow-hidden border-4 border-white/10 bg-stone-900">
-                  <Image
-                    src="/images/profile.jpg"
-                    alt="김지은 프로필 사진"
-                    width={500}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    priority
-                  />
-                </div>
+              <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] rounded-full overflow-hidden">
+                <Image
+                  src="/images/profile.jpg"
+                  alt="김지은 프로필 사진"
+                  width={500}
+                  height={500}
+                  className="w-full h-full object-cover"
+                  priority
+                />
               </div>
-              {/* subtle glow */}
-              <div className="pointer-events-none absolute inset-0 rounded-full ring-8 ring-fuchsia-500/10 blur-2xl" />
             </div>
           </motion.div>
 
@@ -73,7 +69,7 @@ export default function Home() {
                   </motion.span>
                 </h1>
                 
-                <div className="text-base md:text-lg text-stone-300 mb-12 leading-relaxed space-y-2">
+                <div className="text-base md:text-lg text-stone-300 mb-12 leading-relaxed">
                   <p>AI 연구실에서 시작해 풀스택 개발까지 다양한 경험을 쌓아왔습니다.</p>
                   <p>기술이 실제 문제를 해결할 때 의미가 있다고 믿으며,</p>
                   <p>지금은 백엔드와 블록체인 영역으로 커리어를 확장하고 있습니다.</p>
@@ -131,7 +127,7 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
                     href="/about"
-                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-fuchsia-500 to-pink-500 text-white px-8 py-3 rounded-full font-semibold hover:from-fuchsia-400 hover:to-pink-400 transition-all duration-200 shadow-lg shadow-fuchsia-600/20"
+                    className="inline-flex items-center justify-center gap-2 bg-fuchsia-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-fuchsia-400 transition-all duration-200"
                   >
                     MORE ABOUT ME
                     <ArrowRight className="w-5 h-5" />
