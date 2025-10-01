@@ -73,9 +73,11 @@ export default function Home() {
                   </motion.span>
                 </h1>
                 
-                <p className="text-base md:text-lg text-stone-300 mb-12 leading-relaxed">
-                  AI 연구실에서 시작해 풀스택 개발까지 다양한 경험을 쌓아왔습니다. 기술이 실제 문제를 해결할 때 의미가 있다고 믿으며, 지금은 백엔드와 블록체인 영역으로 커리어를 확장하고 있습니다.
-                </p>
+                <div className="text-base md:text-lg text-stone-300 mb-12 leading-relaxed space-y-2">
+                  <p>AI 연구실에서 시작해 풀스택 개발까지 다양한 경험을 쌓아왔습니다.</p>
+                  <p>기술이 실제 문제를 해결할 때 의미가 있다고 믿으며,</p>
+                  <p>지금은 백엔드와 블록체인 영역으로 커리어를 확장하고 있습니다.</p>
+                </div>
 
                     <div className="mb-12">
                       <h2 className="text-xl font-bold mb-6">PERSONAL INFOS</h2>
