@@ -74,8 +74,7 @@ export default function Home() {
                 </h1>
                 
                 <p className="text-base md:text-lg text-stone-300 mb-12 leading-relaxed">
-                  연구실의 실험을 넘어, 이제는 백엔드와 블록체인으로 아이디어를 실제 서비스로 증명합니다. 
-                  풀스택 경험을 바탕으로, 지금은 백엔드와 블록체인 영역으로 커리어를 확장하고 있습니다.
+                  AI 연구실에서 시작해 풀스택 개발까지 다양한 경험을 쌓아왔습니다. 기술이 실제 문제를 해결할 때 의미가 있다고 믿으며, 지금은 백엔드와 블록체인 영역으로 커리어를 확장하고 있습니다.
                 </p>
 
                     <div className="mb-12">
