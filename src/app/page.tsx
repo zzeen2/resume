@@ -134,7 +134,7 @@ export default function Home() {
                   </a>
                   <a
                     href="/resume.pdf"
-                    download
+                    download="김지은_Resume.pdf"
                     className="inline-flex items-center justify-center gap-2 border-2 border-fuchsia-500 text-fuchsia-400 px-8 py-3 rounded-full font-semibold hover:bg-fuchsia-500 hover:text-white transition-all duration-200"
                   >
                     이력서 다운로드
